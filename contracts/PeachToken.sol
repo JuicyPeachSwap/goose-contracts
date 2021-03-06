@@ -4,6 +4,12 @@ import "./libs/BEP20.sol";
 
 // PeachToken with Governance.
 contract PeachToken is BEP20('Peach', 'PEACH') {
+
+    // creating pool for large scale burning and initial Airdrop for community building
+    constructor() public {
+        _mint(msg.sender, 10e23);
+    }
+
     /// @notice Creates `_amount` token to `_to`. Must only be called by the owner (MasterChef).
     function mint(address _to, uint256 _amount) public onlyOwner {
         _mint(_to, _amount);
